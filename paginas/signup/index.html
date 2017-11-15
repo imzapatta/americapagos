@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>America Pagos</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="blue darken-4" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><img src="img/icon.png" alt="logo ap" class="brand-logo"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/login">Inicia Sesión</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="/login">Inicia Sesión</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  
+
+
+  <div class="container">
+    <div class="section">
+
+      <div class="col s12 m8">
+        <div class="row">
+          <div class="signup-box">
+            <h1 class="ap">America Pagos</h1>
+            <form class="signup-form">
+              <h2>Completa el siguiente formulario para que pueda obtener una cuenta en America Pagos©</h2>
+              <div class="divider"></div>
+              <div class="section">
+                <div class="input-field col s12 m12 l12">
+                  <input id="txt-email" type="email" name="email" class="validate">
+                  <label for="txt-email">Correo Electronico</label>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                  <input id="txt-name" type="text" name="name" class="validate">
+                  <label for="txt-name">Nombre Completo</label>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                  <input id="txt-username" type="text" name="username" class="validate">
+                  <label for="txt-username">Nombre de Usuario</label>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                  <input id="txt-pass" type="password" name="password" class="validate">
+                  <label for="txt-pass">Contraseña</label>
+                </div>
+                <button class="btn waves-effect waves-light btn-signup" id="btn-signup">Registrate</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="login-box">
+            ¿Ya tiene una cuenta?     <a href="/login">Inicia Sesión</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="../js/americapagos.js"></script>
+
+</body>
+</html>
