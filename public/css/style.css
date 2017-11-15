@@ -4,7 +4,7 @@
 
 body {
   display: flex;
-  min-height: 100vh;
+  min-height: 90vh;
   flex-direction: column;
 }
 
@@ -108,3 +108,11 @@ main .top{
   font-weight: 900;
   font-size: 18px;
 }
+
+.botones a{
+  padding: 0px 15px;
+}
+
+.modal.bottom-sheet{
+  max-height: 80%;
+} 

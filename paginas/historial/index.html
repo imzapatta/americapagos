@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>America Pagos - Inicio</title>
+  <title>America Pagos - Historial</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -55,7 +55,7 @@
         <div class="row">
             <div class="contenido">
                 <div class="card-panel blue lighten-5 msj">
-                  <p>Últimos Movimientos</p>
+                  <p>Historico de Movimientos</p>
                 </div>
                 <div class="card-panel white">
                     <div class="col s2 m2 l2">
@@ -67,8 +67,12 @@
                         </span>
                         <br>
                         <span class="usr">
-                            @user                
-                          </span>
+                          @user                
+                        </span>
+                        <br>
+                        <span class="fecha">
+                          10/10/2017                
+                        </span>
                       </div>
                       <div class="col s4 m5 l5 right">
                         <span class="monto">
@@ -95,51 +99,51 @@
       <div class="container">
           <div class="col s12 m4 offset-m4 l4 offset-l4 ">
             <div class="row center">
-                <div class="botones">
-                    <a href="/home" class="waves-effect waves-teal btn-flat"><i class="fa fa-home" aria-hidden="true"></i></a>
-                    <a href="/historial" class="waves-effect waves-teal btn-flat"><i class="fa fa-history" aria-hidden="true"></i></a>
-                    <a  href="#modal1"class="waves-effect waves-teal btn-flat modal-trigger"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal bottom-sheet">
-                      <div class="modal-content">
-                        <h4>Realizar un Pago</h4>
-                        <p>Llene el formulario para completar la transacción.</p>
-                        <form class="pago-form">
-                            <div class="divider"></div>
-                            <div class="section">
-                              <div class="input-field col s8 m12 l12">
-                                <input id="username" type="text" class="">
-                                <label for="username">Usuario Receptor</label>
-                              </div>
-                              <div class="input-field col s4 m12 l12">
-                                <input id="monto" type="number" min="1" max="1000000"class="">
-                                <label for="monto">Monto a Pagar</label>
-                              </div>
-                              <div class="input-field col s12 m12 l12">
-                                <input id="mensaje" type="text" class="">
-                                <label for="mensaje">Mensaje</label>
-                              </div>
-                              <div class="input-field col s12">
-                                <select>
-                                  <option value="" disabled selected>Escoge una opción</option>
-                                  <option value="1">Pago de Servicio</option>
-                                  <option value="2">Envio de Dinero</option>
-                                  <option value="3">Compra de Producto</option>
-                                  <option value="4">Otro</option>
-                                </select>
-                                <label>Tipo de Transacción</label>
-                              </div>
+              <div class="botones">
+                  <a href="/home" class="waves-effect waves-teal btn-flat"><i class="fa fa-home" aria-hidden="true"></i></a>
+                  <a href="/historial" class="waves-effect waves-teal btn-flat"><i class="fa fa-history" aria-hidden="true"></i></a>
+                  <a  href="#modal1"class="waves-effect waves-teal btn-flat modal-trigger"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                  <!-- Modal Structure -->
+                  <div id="modal1" class="modal bottom-sheet">
+                    <div class="modal-content">
+                      <h4>Realizar un Pago</h4>
+                      <p>Llene el formulario para completar la transacción.</p>
+                      <form class="pago-form">
+                          <div class="divider"></div>
+                          <div class="section">
+                            <div class="input-field col s8 m12 l12">
+                              <input id="username" type="text" class="">
+                              <label for="username">Usuario Receptor</label>
                             </div>
-                          </form>
-                      </div>
-                      <div class="modal-footer">
-                        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat red-text left">Cancelar</a>
-                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Pagar</a>
-                      </div>
+                            <div class="input-field col s4 m12 l12">
+                              <input id="monto" type="number" min="1" max="1000000"class="">
+                              <label for="monto">Monto a Pagar</label>
+                            </div>
+                            <div class="input-field col s12 m12 l12">
+                              <input id="mensaje" type="text" class="">
+                              <label for="mensaje">Mensaje</label>
+                            </div>
+                            <div class="input-field col s12">
+                              <select>
+                                <option value="" disabled selected>Escoge una opción</option>
+                                <option value="1">Pago de Servicio</option>
+                                <option value="2">Envio de Dinero</option>
+                                <option value="3">Compra de Producto</option>
+                                <option value="4">Otro</option>
+                              </select>
+                              <label>Tipo de Transacción</label>
+                            </div>
+                          </div>
+                        </form>
                     </div>
-                    <a href="/perfil" class="waves-effect waves-teal btn-flat"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-                    <a href="/config" class="waves-effect waves-teal btn-flat"><i class="fa fa-cog" aria-hidden="true"></i></a>    
-                </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat red-text left">Cancelar</a>
+                      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Pagar</a>
+                    </div>
+                  </div>
+                  <a href="/perfil" class="waves-effect waves-teal btn-flat"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                  <a href="/config" class="waves-effect waves-teal btn-flat"><i class="fa fa-cog" aria-hidden="true"></i></a>    
+              </div>
           </div>
         </div>
       </div>

@@ -23,6 +23,19 @@ app.get("/signup",function(req, res){
 app.get("/home",function(req, res){
 	res.sendFile('paginas/home/', {root: __dirname })
 });
+
+app.get("/historial",function(req, res){
+	res.sendFile('paginas/historial/', {root: __dirname })
+});
+
+app.get("/perfil",function(req, res){
+	res.sendFile('paginas/perfil/', {root: __dirname })
+});
+
+app.get("/config",function(req, res){
+	res.sendFile('paginas/config/', {root: __dirname })
+});
+
 app.post("/api/signup",function(req, res){
 	res.send("/")
 });
