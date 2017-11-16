@@ -32,25 +32,25 @@
     <div class="container">  
       <div class="col s12 m12 l12">
         <div class="row top">
-            <div class="card-panel blue darken-4 white-text">
-                <div class="col s2 m2 l2">
-                    <img src="/img/profile/goku.jpg" alt="goku" class="circle responsive-img">
-                  </div>
-                  <div class="col s6  m5 l5">
-                    <span class="nombre">
-                      Roberto Zapata
-                    </span>
-                    <br>
-                    <span class="usr">
-                        @user                
-                      </span>
-                  </div>
-                  <div class="col s4 m5 l5 right">
-                    <span class="monto">
-                      100 Lps
-                    </span>
-                  </div>
-            </div>
+          <div class="card-panel blue darken-4 white-text">
+            <div class="col s2 m2 l2">
+                <img id="img-usr" src="/img/profile/goku.jpg" alt="goku" class="circle responsive-img">
+              </div>
+              <div class="col s6  m5 l5">
+                <span id="nombre-usr" class="nombre">
+                  Roberto Zapata
+                </span>
+                <br>
+                <span id="username-usr" class="usr">
+                    @user                
+                  </span>
+              </div>
+              <div class="col s4 m5 l5 right">
+                <span id="monto-usr"  class="monto">
+                  100 
+                </span>Lps
+              </div>
+        </div>
         </div>
         <div class="row">
             <div class="contenido">
@@ -101,11 +101,11 @@
                                   <label for="monto">Monto a Pagar</label>
                                 </div>
                                 <div class="input-field col s12 m12 l12">
-                                  <input id="mensaje" type="text" class="">
+                                  <textarea id="mensaje" class="materialize-textarea" data-length="240"></textarea>
                                   <label for="mensaje">Mensaje</label>
                                 </div>
                                 <div class="input-field col s12">
-                                  <select>
+                                  <select name="opcion">
                                     <option value="" disabled selected>Escoge una opción</option>
                                     <option value="1">Pago de Servicio</option>
                                     <option value="2">Envio de Dinero</option>
@@ -119,7 +119,8 @@
                         </div>
                         <div class="modal-footer">
                           <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat red-text left">Cancelar</a>
-                          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat green-text">Pagar</a>
+                          <a href="#!" id="btn-pagar" 
+                          class="modal-action modal-close waves-effect waves-green btn-flat green-text">Pagar</a>
                         </div>
                       </div>
           

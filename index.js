@@ -30,6 +30,25 @@ function Auth(req, res, next){
 	}
 }
 
+function date(){
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	
+	var yyyy = today.getFullYear();
+	if(dd<10){
+		dd='0'+dd;
+	} 
+	if(mm<10){
+		mm='0'+mm;
+	} 
+	var hh = today.getHours();
+	var min = today.getMinutes();
+	var ss = today.getSeconds();
+	var today = dd+'-'+mm+'-'+yyyy+" "+hh+':'+min+':'+ss;
+	return today;
+}
+
 app.use(express.static("public"));
 app.use(session({secret:'proyecto',resave:true,saveUninitialized:true}));
 
@@ -49,6 +68,10 @@ app.get("/logout", function (req,res){
 	req.session.destroy();
 	res.sendFile('paginas/login/', {root: __dirname })
 })
+
+app.get("/get-session",function(req, res){
+	res.send(JSON.stringify(req.session));
+});
 app.post("/registro-usuarios", urlEncodeParser, function(req, res){
 	conexion.query(
 		"INSERT INTO tbl_usuarios (nombre,email,username,password, foto) VALUES (?,?,?,?,?)",
@@ -58,6 +81,26 @@ app.post("/registro-usuarios", urlEncodeParser, function(req, res){
 			req.body.user,
 			encriptar(req.body.password),
 			"/img/profile/goku.jpg"
+		],
+		function(err, resultado){
+			if (err) throw err;
+			res.send(JSON.stringify(resultado));
+		}
+	);
+});
+
+app.post("/registro-movimiento", urlEncodeParser, function(req, res){
+	conexion.query(
+		"INSERT INTO tbl_movimientos(tipo_movimiento, usuario_emisor, usuario_receptor, monto, referencia, fecha, mensaje) "+
+		"VALUES (?,?,?,?,?,?,?)",
+		[	
+			req.body.tipo,
+			req.session.iduser,
+			req.body.usuarioReceptor,
+			req.body.monto,
+			encriptar(req.body.iduser+req.body.usuarioReceptor+date()),
+			date(),
+			req.body.mensaje
 		],
 		function(err, resultado){
 			if (err) throw err;
@@ -88,8 +131,49 @@ app.post("/logearse", urlEncodeParser,function(req, res){
 	);
 });
 
+app.get("/info-usuario", Auth,function(req, res){
+	// console.log("Se buscará la informacion");
+	conexion.query(
+		"SELECT id, nombre, username, foto, monto, count(28) existe FROM tbl_usuarios WHERE id= ?",
+		[	
+			req.session.iduser
+		],
+		function(err, resultado, campos){
+			if (err) throw err;
+			console.log(resultado)
+			if(resultado[0].existe == 1){
+				console.log(resultado)
+				res.send(JSON.stringify(resultado));
+			}
+		}
+	);
+});
+app.get("/ultimos-movimientos", Auth,function(req, res){
+
+	conexion.query(
+		"SELECT A.id, tipo_movimiento, usuario_emisor, usuario_receptor, A.monto, fecha, mensaje, b.nombre nombre_emisor, b.username username_emisor, b.foto foto_emisor, c.nombre nombre_receptor, c.username username_receptor, count(28) existe "+
+		"FROM tbl_movimientos A "+
+		"INNER JOIN tbl_usuarios b ON A.usuario_emisor = b.id "+
+		"INNER JOIN tbl_usuarios c ON A.usuario_receptor = c.id "+
+		"WHERE (usuario_emisor=? or usuario_receptor=?) "+
+		"ORDER BY A.id DESC LIMIT 4",
+		[	
+			req.session.iduser,
+			req.session.iduser
+		],
+		function(err, resultado, campos){
+			if (err) throw err;
+			console.log(resultado)
+			if(resultado[0].existe == 1){
+				console.log(resultado)
+				res.send(JSON.stringify(resultado));
+			}
+		}
+	);
+});
+
 app.get("/home", Auth,function(req, res){
-	res.sendFile('paginas/home/', {root: __dirname })
+		res.sendFile('paginas/home/', {root: __dirname })
 });
 
 app.get("/historial", Auth,function(req, res){
